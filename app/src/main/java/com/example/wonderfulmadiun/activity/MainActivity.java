@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.wonderfulmadiun.R;
 import com.example.wonderfulmadiun.adapter.MainAdapter;
 import com.example.wonderfulmadiun.adjustment.MarginAdjustment;
+import com.example.wonderfulmadiun.model.KulinerModel;
 import com.example.wonderfulmadiun.model.MainModel;
 import com.example.wonderfulmadiun.utility.Tools;
 
@@ -75,17 +76,17 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.onSel
     }
 
     private void setMenu() {
-        mdlMainMenu = new MainModel("Hotel", R.drawable.ic_hotel);
+        mdlMainMenu = new MainModel("Destinasi Wisata", R.drawable.ic_hotel);
         lsMainMenu.add(mdlMainMenu);
         mdlMainMenu = new MainModel("Kuliner", R.drawable.ic_cafe);
         lsMainMenu.add(mdlMainMenu);
-        mdlMainMenu = new MainModel("Tempat Ibadah", R.drawable.ic_pray_place);
+        mdlMainMenu = new MainModel("Penginapan", R.drawable.ic_pray_place);
         lsMainMenu.add(mdlMainMenu);
-        mdlMainMenu = new MainModel("Wisata", R.drawable.ic_destination);
+        mdlMainMenu = new MainModel("Tempat Ibadah", R.drawable.ic_destination);
         lsMainMenu.add(mdlMainMenu);
-        mdlMainMenu = new MainModel("Komunitas", R.drawable.ic_komunitas);
+        mdlMainMenu = new MainModel("Fasilitas Kesehatan", R.drawable.ic_komunitas);
         lsMainMenu.add(mdlMainMenu);
-        mdlMainMenu = new MainModel("Rute Angkot", R.drawable.ic_rute_angkot);
+        mdlMainMenu = new MainModel("Coffee Shop", R.drawable.ic_cafe);
         lsMainMenu.add(mdlMainMenu);
 
         MainAdapter myAdapter = new MainAdapter(lsMainMenu, this);
@@ -96,16 +97,22 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.onSel
     @Override
     public void onSelected(MainModel mdlMain) {
         switch (mdlMain.getTxtName()) {
-            case "Hotel":
-                startActivityForResult(new Intent(MainActivity.this, WisataActivity.class), 1);
+            case "Penginapan":
+                startActivityForResult(new Intent(MainActivity.this, PenginapanActivity.class), 1);
                 break;
             case "Kuliner":
-                startActivityForResult(new Intent(MainActivity.this, WisataActivity.class), 1);
+                startActivityForResult(new Intent(MainActivity.this, KulinerActivity.class), 1);
                 break;
             case "Tempat Ibadah":
                 startActivityForResult(new Intent(MainActivity.this, WisataActivity.class), 1);
                 break;
-            case "Wisata":
+            case "Destinasi Wisata":
+                startActivityForResult(new Intent(MainActivity.this, WisataActivity.class), 1);
+                break;
+            case "Fasilitas Kesehatan":
+                startActivityForResult(new Intent(MainActivity.this, WisataActivity.class), 1);
+                break;
+            case "Coffe Shop":
                 startActivityForResult(new Intent(MainActivity.this, WisataActivity.class), 1);
                 break;
         }

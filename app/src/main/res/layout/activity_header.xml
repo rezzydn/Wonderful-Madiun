@@ -73,7 +73,7 @@
                                 android:layout_marginStart="10dp"
                                 android:drawableStart="@drawable/ic_dtl_time"
                                 android:drawablePadding="10dp"
-                                android:drawableTint="@color/color_primary"
+                                android:drawableTint="@color/color_primary_dark"
                                 android:gravity="center"
                                 android:textColor="@android:color/black"
                                 android:textSize="12sp" />

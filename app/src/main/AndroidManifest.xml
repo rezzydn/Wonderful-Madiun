@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.DetailKulinerActivity" />
+        <activity android:name=".activity.DetailPenginapanActivity" />
+        <activity android:name=".activity.PenginapanActivity" />
         <activity android:name=".activity.DetailWisataActivity" />
+        <activity android:name=".activity.KulinerActivity"/>
         <activity android:name=".activity.WisataActivity" />
         <activity android:name=".activity.MainActivity" >
             <intent-filter>
@@ -30,7 +34,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="Google Maps API Key" />
+            android:value="AIzaSyBu1ueAsgh5rVX5GNxjogBa3J_afkCuXxw" />
     </application>
 
 </manifest>
