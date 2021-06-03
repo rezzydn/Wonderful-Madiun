@@ -45,11 +45,15 @@ public class DetailWisataActivity extends AppCompatActivity {
         if (modelWisata != null) {
             idWisata = modelWisata.getIdWisata();
             NamaWisata = modelWisata.getTxtNamaWisata();
+            Desc = modelWisata.getDeskripsiWisata();
 
             //set Id
             imgWisata = findViewById(R.id.imgWisata);
             tvNamaWisata = findViewById(R.id.tvNamaWisata);
             tvDescWisata = findViewById(R.id.tvDescWisata);
+
+            tvNamaWisata.setText(NamaWisata);
+            tvDescWisata.setText(Desc);
 
             //get Image
             Glide.with(this)

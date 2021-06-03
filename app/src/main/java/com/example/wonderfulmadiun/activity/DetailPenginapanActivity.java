@@ -74,6 +74,15 @@ public class DetailPenginapanActivity extends AppCompatActivity implements OnMap
             txtPhoneHotel = findViewById(R.id.tvPhoneHotel);
 
             btnHotel = findViewById(R.id.button_link);
+            btnHotel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String url = LinkHotel;
+                    Intent openlink  = new Intent(Intent.ACTION_VIEW);
+                    openlink.setData(Uri.parse(url));
+                    startActivity(openlink);
+                }
+            });
 
 
             //show String to Text
@@ -121,12 +130,5 @@ public class DetailPenginapanActivity extends AppCompatActivity implements OnMap
         googleMaps.getUiSettings().setAllGesturesEnabled(true);
         googleMaps.getUiSettings().setZoomGesturesEnabled(true);
         googleMaps.setTrafficEnabled(true);
-    }
-
-    public void booking( View view) {
-        String url = "https://www.agoda.com/en-gb/aston-madiun-hotel-and-conference-center/hotel/madiun-id.html";
-        Intent openlink  = new Intent(Intent.ACTION_VIEW);
-        openlink.setData(Uri.parse(url));
-        startActivity(openlink);
     }
 }

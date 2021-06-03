@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class WisataModel implements Serializable {
 
-    private String idWisata, txtNamaWisata, GambarWisata, KategoriWisata;
+    private String idWisata, txtNamaWisata, GambarWisata, KategoriWisata, DeskripsiWisata;
 
     public String getIdWisata() {
         return idWisata;
@@ -37,5 +37,13 @@ public class WisataModel implements Serializable {
 
     public void setKategoriWisata(String kategoriWisata) {
         KategoriWisata = kategoriWisata;
+    }
+
+    public String getDeskripsiWisata() {
+        return DeskripsiWisata;
+    }
+
+    public void setDeskripsiWisata(String deskripsiWisata) {
+        DeskripsiWisata = deskripsiWisata;
     }
 }
