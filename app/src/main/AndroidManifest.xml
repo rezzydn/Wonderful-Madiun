@@ -14,10 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.DetailCoffeeActivity" />
+        <activity android:name=".activity.DetailPerbelanjaanActivity"/>
+        <activity android:name=".activity.DetailPrayplaceActivity"/>
         <activity android:name=".activity.DetailKulinerActivity" />
         <activity android:name=".activity.DetailPenginapanActivity" />
-        <activity android:name=".activity.PenginapanActivity" />
         <activity android:name=".activity.DetailWisataActivity" />
+        <activity android:name=".activity.CoffeeActivity" />
+        <activity android:name=".activity.PenginapanActivity" />
+        <activity android:name=".activity.PerbelanjaanActivity" />
+        <activity android:name=".activity.PrayplaceActivity"/>
         <activity android:name=".activity.KulinerActivity"/>
         <activity android:name=".activity.WisataActivity" />
         <activity android:name=".activity.MainActivity" >
