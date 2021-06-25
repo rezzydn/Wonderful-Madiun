@@ -84,6 +84,8 @@ public class WisataActivity extends AppCompatActivity implements WisataAdapter.o
                                 dataApi.setGambarWisata(temp.getString("gambar_url"));
                                 dataApi.setKategoriWisata(temp.getString("kategori"));
                                 dataApi.setDeskripsiWisata(temp.getString("deskripsi"));
+                                dataApi.setLangitude(temp.getString("latitude"));
+                                dataApi.setLongtitude(temp.getString("longitude"));
                                 modelWisata.add(dataApi);
                                 showWisata();
                             }

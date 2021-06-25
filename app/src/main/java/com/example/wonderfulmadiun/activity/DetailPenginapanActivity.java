@@ -94,15 +94,7 @@ public class DetailPenginapanActivity extends AppCompatActivity implements OnMap
                     .load(modelHotel.getGambarHotel())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imgHotel);
-
-            getDetailHotel();
         }
-    }
-    private void getDetailHotel() {
-        AndroidNetworking.get(RestApi.DetailWisata)
-                .addPathParameter("id", idHotel)
-                .setPriority(Priority.HIGH)
-                .build();
     }
 
     @Override

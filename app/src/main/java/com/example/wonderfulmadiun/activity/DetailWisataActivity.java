@@ -18,15 +18,22 @@ import com.example.wonderfulmadiun.rest.RestApi;
 import com.example.wonderfulmadiun.model.WisataModel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class DetailWisataActivity extends AppCompatActivity {
+public class DetailWisataActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     Toolbar tbDetailWisata;
     TextView tvNamaWisata, tvDescWisata;
     ImageView imgWisata;
+    GoogleMap googleMaps;
     String idWisata, NamaWisata, Desc;
     WisataModel modelWisata;
 
@@ -40,6 +47,9 @@ public class DetailWisataActivity extends AppCompatActivity {
         setSupportActionBar(tbDetailWisata);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         modelWisata = (WisataModel) getIntent().getSerializableExtra("detailWisata");
         if (modelWisata != null) {
@@ -60,43 +70,23 @@ public class DetailWisataActivity extends AppCompatActivity {
                     .load(modelWisata.getGambarWisata())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imgWisata);
-
-            getDetailWisata();
         }
     }
 
-    private void getDetailWisata() {
-        AndroidNetworking.get(RestApi.DetailWisata)
-                .addPathParameter("id", idWisata)
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
+    public void onMapReady(GoogleMap googleMap) {
 
-                                NamaWisata = response.getString("nama");
-                                Desc = response.getString("deskripsi");
+        //get LatLong
+        double latitude = Double.parseDouble(modelWisata.getLangitude());
+        double longitude = Double.parseDouble(modelWisata.getLongtitude());
 
-                                //set Text
-                                tvNamaWisata.setText(NamaWisata);
-                                tvDescWisata.setText(Desc);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                                Toast.makeText(DetailWisataActivity.this,
-                                        "Gagal menampilkan data!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        Toast.makeText(DetailWisataActivity.this,
-                                "Tidak ada jaringan internet!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        googleMaps = googleMap;
+        LatLng latLng = new LatLng(latitude, longitude);
+        googleMaps.addMarker(new MarkerOptions().position(latLng).title(NamaWisata));
+        googleMaps.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        googleMaps.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+        googleMaps.getUiSettings().setAllGesturesEnabled(true);
+        googleMaps.getUiSettings().setZoomGesturesEnabled(true);
+        googleMaps.setTrafficEnabled(true);
     }
 
     @Override

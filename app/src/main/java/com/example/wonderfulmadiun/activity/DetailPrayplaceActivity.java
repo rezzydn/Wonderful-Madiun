@@ -61,52 +61,18 @@ public class DetailPrayplaceActivity extends AppCompatActivity implements OnMapR
 
             //set Id
             imgPrayplace = findViewById(R.id.imgPrayplace);
-            tvNamaPrayplace = findViewById(R.id.tvNamaPrayplace);
-            tvAddressPrayplace = findViewById(R.id.tvAddressPrayplace);
+            tvNamaPrayplace = findViewById(R.id.ivNamaPrayPlace);
+            tvAddressPrayplace = findViewById(R.id.tvAlamatPrayPlace);
+
+            tvNamaPrayplace.setText(NamaPrayplace);
+            tvAddressPrayplace.setText(AddressPrayplace);
 
             Glide.with(this)
                     .load(modelPrayplace.getGambarPrayplace())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imgPrayplace);
-
-            getDetailPrayplace();
-
         }
     }
-
-    private void getDetailPrayplace() {
-        AndroidNetworking.get(RestApi.DetailPrayplace)
-                .addPathParameter("id", idPrayplace)
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-
-                                NamaPrayplace = response.getString("nama");
-                                AddressPrayplace = response.getString("alamat");
-
-                                tvNamaPrayplace.setText(NamaPrayplace);
-                                tvAddressPrayplace.setText(AddressPrayplace);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                                Toast.makeText(DetailPrayplaceActivity.this,
-                                        "Gagal menampilkan data!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        Toast.makeText(DetailPrayplaceActivity.this,
-                                "Tidak ada jaringan internet!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
 

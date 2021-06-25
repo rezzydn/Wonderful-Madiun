@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class WisataModel implements Serializable {
 
-    private String idWisata, txtNamaWisata, GambarWisata, KategoriWisata, DeskripsiWisata;
+    private String idWisata, txtNamaWisata, GambarWisata, KategoriWisata, DeskripsiWisata, langitude, longtitude;
 
     public String getIdWisata() {
         return idWisata;
@@ -45,5 +45,21 @@ public class WisataModel implements Serializable {
 
     public void setDeskripsiWisata(String deskripsiWisata) {
         DeskripsiWisata = deskripsiWisata;
+    }
+
+    public String getLangitude() {
+        return langitude;
+    }
+
+    public void setLangitude(String langitude) {
+        this.langitude = langitude;
+    }
+
+    public String getLongtitude() {
+        return longtitude;
+    }
+
+    public void setLongtitude(String longtitude) {
+        this.longtitude = longtitude;
     }
 }
