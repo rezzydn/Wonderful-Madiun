@@ -13,6 +13,7 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wonderfulmadiun.R;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.onSel
     MainModel mdlMainMenu;
     List<MainModel> lsMainMenu = new ArrayList<>();
     TextView tvToday;
+    LinearLayout btnDial;
     String hariIni;
 
     @Override
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.onSel
         gridMargin = new MarginAdjustment(2, Tools.dp2px(this, 4));
         rvMainMenu.addItemDecoration(gridMargin);
         rvMainMenu.setHasFixedSize(true);
+
+        btnDial = findViewById(R.id.btnDial);
+        btnDial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DialActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //get Time Now
         Date dateNow = Calendar.getInstance().getTime();

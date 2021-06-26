@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wonderfulmadiun">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -14,19 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.DialActivity"></activity>
         <activity android:name=".activity.DetailCoffeeActivity" />
-        <activity android:name=".activity.DetailPerbelanjaanActivity"/>
-        <activity android:name=".activity.DetailPrayplaceActivity"/>
+        <activity android:name=".activity.DetailPerbelanjaanActivity" />
+        <activity android:name=".activity.DetailPrayplaceActivity" />
         <activity android:name=".activity.DetailKulinerActivity" />
         <activity android:name=".activity.DetailPenginapanActivity" />
         <activity android:name=".activity.DetailWisataActivity" />
         <activity android:name=".activity.CoffeeActivity" />
         <activity android:name=".activity.PenginapanActivity" />
         <activity android:name=".activity.PerbelanjaanActivity" />
-        <activity android:name=".activity.PrayplaceActivity"/>
-        <activity android:name=".activity.KulinerActivity"/>
+        <activity android:name=".activity.PrayplaceActivity" />
+        <activity android:name=".activity.KulinerActivity" />
         <activity android:name=".activity.WisataActivity" />
-        <activity android:name=".activity.MainActivity" >
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +38,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBu1ueAsgh5rVX5GNxjogBa3J_afkCuXxw" />
