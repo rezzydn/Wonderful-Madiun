@@ -78,8 +78,8 @@ public class DetailPenginapanActivity extends AppCompatActivity implements OnMap
                 @Override
                 public void onClick(View v) {
                     String url = LinkHotel;
-                    Intent openlink  = new Intent(Intent.ACTION_VIEW);
-                    openlink.setData(Uri.parse(url));
+                    Intent openlink  = new Intent(getApplicationContext(),WebActivity.class);
+                    openlink.putExtra("Link",url);
                     startActivity(openlink);
                 }
             });

@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DialActivity"></activity>
+        <activity android:name=".activity.WebActivity"></activity>
+        <activity android:name=".activity.DialActivity" />
         <activity android:name=".activity.DetailCoffeeActivity" />
         <activity android:name=".activity.DetailPerbelanjaanActivity" />
         <activity android:name=".activity.DetailPrayplaceActivity" />
