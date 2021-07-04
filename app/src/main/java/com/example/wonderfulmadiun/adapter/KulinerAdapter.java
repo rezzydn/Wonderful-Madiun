@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wonderfulmadiun.R;
@@ -51,7 +52,7 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
                 .into(holder.imgKuliner);
 
         holder.tvNamaKuliner.setText(data.getTxtNamaKuliner());
-        holder.rlListKuliner.setOnClickListener(new View.OnClickListener() {
+        holder.detailKuliner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onSelectData.onSelected(data);
@@ -68,12 +69,12 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tvNamaKuliner;
-        public RelativeLayout rlListKuliner;
+        public CardView detailKuliner;
         public ImageView imgKuliner;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            rlListKuliner = itemView.findViewById(R.id.rlListKuliner);
+            detailKuliner = itemView.findViewById(R.id.detailKuliner);
             tvNamaKuliner = itemView.findViewById(R.id.tvNamaKuliner);
             imgKuliner = itemView.findViewById(R.id.imgKuliner);
         }

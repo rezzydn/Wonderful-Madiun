@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wonderfulmadiun.R;
@@ -51,7 +52,7 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.ViewHolder
                 .into(holder.imgCoffee);
 
         holder.tvNamaCoffee.setText(data.getTxtNamaCoffee());
-        holder.rlListCoffee.setOnClickListener(new View.OnClickListener() {
+        holder.detailCoffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onSelectData.onSelected(data);
@@ -68,12 +69,12 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tvNamaCoffee;
-        public RelativeLayout rlListCoffee;
+        public CardView detailCoffee;
         public ImageView imgCoffee;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            rlListCoffee = itemView.findViewById(R.id.rlListCoffee);
+            detailCoffee = itemView.findViewById(R.id.detailCoffee);
             tvNamaCoffee = itemView.findViewById(R.id.tvNamaCoffee);
             imgCoffee = itemView.findViewById(R.id.imgCoffee);
         }

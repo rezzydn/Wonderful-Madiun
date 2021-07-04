@@ -1,95 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rlListCoffee"
+<androidx.cardview.widget.CardView
+    android:id="@+id/detailCoffee"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="140dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_gravity="fill"
+    android:layout_rowWeight="1"
+    android:elevation="5dp">
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/imgCoffee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp"
+        android:alpha=".5"
+        android:layout_gravity="bottom"
+        android:background="@color/black"
+        />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/tvNamaCoffee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
+                android:text="-"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="13dp"/>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
-
-                    <RelativeLayout
-                        android:id="@+id/rlCoffee"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/imgCoffee"
-                            android:layout_width="match_parent"
-                            android:layout_height="150dp"
-                            android:scaleType="centerCrop" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlCoffee"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:id="@+id/tvNamaCoffee"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_arrow"
-                            android:tint="@android:color/black" />
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="start|center"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="-20dp"
-            android:background="@drawable/ic_circle_white"
-            android:gravity="center" />
+            android:id="@+id/btnDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="end|center"
-            android:layout_marginTop="-20dp"
-            android:layout_marginEnd="-10dp"
-            android:background="@drawable/ic_circle_white"
-            android:gravity="center" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/white" />
 
-    </FrameLayout>
+        </LinearLayout>
 
-</RelativeLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
