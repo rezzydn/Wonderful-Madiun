@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.onSel
     MainModel mdlMainMenu;
     List<MainModel> lsMainMenu = new ArrayList<>();
     TextView tvToday;
-    LinearLayout btnDial;
+    LinearLayout btnDial,btnKritik;
     String hariIni;
 
     @Override
@@ -56,12 +56,23 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.onSel
 
         tvToday = findViewById(R.id.tvDate);
         rvMainMenu = findViewById(R.id.rv_mainmenu);
-        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 2,
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 3,
                 RecyclerView.VERTICAL, false);
         rvMainMenu.setLayoutManager(mLayoutManager);
         gridMargin = new MarginAdjustment(2, Tools.dp2px(this, 4));
         rvMainMenu.addItemDecoration(gridMargin);
         rvMainMenu.setHasFixedSize(true);
+
+        btnKritik = findViewById(R.id.btnKritik);
+        btnKritik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://wonderful-madiun.herokuapp.com/user/User_suggest";
+                Intent openlink  = new Intent(getApplicationContext(),WebActivity.class);
+                openlink.putExtra("Link",url);
+                startActivity(openlink);
+            }
+        });
 
         btnDial = findViewById(R.id.btnDial);
         btnDial.setOnClickListener(new View.OnClickListener() {
